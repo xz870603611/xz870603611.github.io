@@ -5,15 +5,19 @@
   
 
   
-  <title>test</title>
+  <title>calendar | test</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="日历制作日历原理就是通过对Date对象和BOM对象的混合使用来完成。 &amp;lt;style&amp;gt;     .divcalinder ul{         margin:0;         padding:0;         list-style-type:none;     }     .divcalinder{         width:434px;         margin:0 a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="calendar">
+<meta property="og:url" content="http://yoursite.com/2018/10/28/calendar/index.html">
 <meta property="og:site_name" content="test">
+<meta property="og:description" content="日历制作日历原理就是通过对Date对象和BOM对象的混合使用来完成。 &amp;lt;style&amp;gt;     .divcalinder ul{         margin:0;         padding:0;         list-style-type:none;     }     .divcalinder{         width:434px;         margin:0 a">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-10-28T08:27:43.647Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="test">
+<meta name="twitter:title" content="calendar">
+<meta name="twitter:description" content="日历制作日历原理就是通过对Date对象和BOM对象的混合使用来完成。 &amp;lt;style&amp;gt;     .divcalinder ul{         margin:0;         padding:0;         list-style-type:none;     }     .divcalinder{         width:434px;         margin:0 a">
   
     <link rel="alternate" href="/atom.xml" title="test" type="application/atom+xml">
   
@@ -60,9 +64,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-calendar" class="article article-type-post" itemscope="" itemprop="blogPost">
+        <section id="main"><article id="post-calendar" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/28/calendar/" class="article-date">
   <time datetime="2018-10-28T08:23:01.000Z" itemprop="datePublished">2018-10-28</time>
@@ -75,8 +77,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/28/calendar/">calendar</a>
+    <h1 class="article-title" itemprop="name">
+      calendar
     </h1>
   
 
@@ -368,249 +370,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-time" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/28/time/" class="article-date">
-  <time datetime="2018-10-28T08:13:54.000Z" itemprop="datePublished">2018-10-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/28/time/">time</a>
-    </h1>
+    <a href="/2018/10/28/time/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">time</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <pre>
-        <style type="text/css">
-            #myCanvas{
-                box-shadow: 0 0 3px red;
-            }
-        </style>
-        
-<canvas id="myCanvas" width="600" height="600"></canvas>
-        <script type="text/javascript">
-                var myCanvas = document.getElementById("myCanvas");
-                var context = myCanvas.getContext("2d");
-                var deg = Math.PI / 180;
-                function draw(){
-                    context.beginPath();
-                    context.arc(300,300,300,0,360*deg,true);
-                    context.save();
-                    context.fillStyle = "#00BFFF";
-                    context.fill();
-                    context.translate(300,300);
-                    context.strokeStyle = "blue";
-                    context.lineWidth = 10;
-                    for (var i = 0; i < 60; i++) {
-                        context.save();
-                        context.rotate(6 * i * deg);
-                        context.beginPath();
-                        context.moveTo(260,0);
-                        if(i%5 == 0){
-                            context.lineTo(290,0);
-                        }else{
-                            context.lineTo(280,0);
-                        }
-                        context.stroke();
-                        context.restore();
-                    }
-                    context.restore();
-                }
-                function drawClock(){
-                    var deg = Math.PI /180;
-                    var times = new Date();
-                    var hours = times.getHours();
-                    var minutes = times.getMinutes();
-                    var second = times.getSeconds();
-                    var hourdeg = hours * 30 * deg + minutes * 6 * deg / 12 + second * 6 * deg / 12 / 60
-                    var minutedeg = minutes * 6 * deg + second * 6 * deg / 60;
-                    var seconddeg = second * 6 * deg;
-                    context.save();
-                    context.translate(300,300);
-                    context.rotate(-90*deg);
-                    context.save();
-                    context.rotate(hourdeg);
-                    context.beginPath();
-                    context.moveTo(0,0);
-                    context.lineTo(80,0);
-                    context.save();
-                    context.lineWidth = 16;
-                    context.strokeStyle = "red";
-                    context.stroke();
-                    context.restore();
-                    context.restore();
-                    context.save();
-                    context.rotate(minutedeg);
-                    context.beginPath();
-                    context.moveTo(0,0);
-                    context.lineTo(120,0);
-                    context.save();
-                    context.lineWidth = 12;
-                    context.strokeStyle = "blue";
-                    context.stroke();
-                    context.restore();
-                    context.restore();
-                    context.save();
-                    context.rotate(seconddeg);
-                    context.beginPath();
-                    context.moveTo(0,0);
-                    context.lineTo(160,0);
-                    context.save();
-                    context.lineWidth = 8;
-                    context.strokeStyle = "green";
-                    context.stroke();
-                    context.restore();
-                    context.restore();
-                    context.restore();
-                }
-                draw();
-                drawClock();
-                setInterval(function(){
-                    context.clearRect(0,0,myCanvas.width,myCanvas.height);
-                    draw();
-                    drawClock();
-                },1000);
-            </script>
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/28/time/" data-id="cjnslle0o0004psucguqosbf9" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-animation" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/28/animation/" class="article-date">
-  <time datetime="2018-10-28T07:38:00.000Z" itemprop="datePublished">2018-10-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/28/animation/">animation</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="animation"><a href="#animation" class="headerlink" title="animation"></a>animation</h3><pre>
-    <style>
-        div.animationdiv{
-            width:600px;
-            height:600px;
-            position:relative;
-            left:150px;
-        }
-        div.animationdemo{
-            width:100px;
-            height:100px;
-            position:absolute;
-            background-color:fuchsia;
-            animation:animationmove infinite 8s linear 2s normal;
-        }
-        @keyframes animationmove{
-            0%{
-                left:0;
-                top:0;
-                transform:scale(1,1);
-            }
-            12.5%{
-                left:200px;
-                top:0;
-                background-color:red;
-                transform:scale(1,1);
-            }
-            25%{
-                left:400px;
-                top:0;
-                background-color:teal;
-                transform:scale(2,2);
-            }
-            37.5%{
-                left:400px;
-                top:200px;
-                background-color:aqua;
-                transform:scale(2,2);
-                border-radius:25%;
-            }
-            50%{
-                left:400px;
-                top:400px;
-                border-radius:50%;
-            }
-            62.5%{
-                left:200px;
-                top:400px;
-                background-color:olive;
-                transform:scale(2,2);
-            }
-            75%{
-                left:0;
-                top:400px;
-                background-color:lime;
-                transform:scale(1,1);
-            }
-            87.5%{
-                left:0;
-                top:200px;
-                background-color:green;
-                transform:scale(2,2);
-                border-radius:50%;
-            }
-            100%{
-                left:0;
-                top:0;
-                background-color:fuchsia;
-                transform:scale(1,1);
-            }
-        }
-    </style>
-    <div class="animationdiv">
-        <div class="animationdemo"></div>
-    </div>
-</pre>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/28/animation/" data-id="cjnslejel0000psuckxwbnnjn" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
